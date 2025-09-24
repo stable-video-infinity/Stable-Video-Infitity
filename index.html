@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>SVI</title>
     <meta name="description" content="SVI is a long-form video generation model">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="theme-color" content="#000000">
 
 
@@ -52,6 +52,17 @@
             font-family: "Outfit", sans-serif;
             background: #28282d;
             color: #fff;
+            overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        body * {
+            -webkit-tap-highlight-color: transparent;
         }
 
         .flex {
@@ -268,6 +279,27 @@
         video {
             width: 100%;
             object-fit: cover;
+            touch-action: manipulation;
+        }
+
+        .video-player {
+            touch-action: manipulation;
+        }
+
+        /* 改进滚动性能 */
+        .grid:not(.grid-noslide) {
+            -webkit-overflow-scrolling: touch;
+            scroll-behavior: smooth;
+        }
+
+        .shots-list {
+            -webkit-overflow-scrolling: touch;
+            scroll-behavior: smooth;
+        }
+
+        .page-select {
+            -webkit-overflow-scrolling: touch;
+            scroll-behavior: smooth;
         }
 
         .span12 {
@@ -1002,28 +1034,52 @@
 
         @media (max-width: 640px) {
             #intro h1 {
-                font-size: 64px;
+                font-size: clamp(32px, 8vw, 64px);
+                margin: 50px 0 20px 0;
+                line-height: 1.2;
+            }
+
+            #intro h2 {
+                font-size: clamp(14px, 4vw, 20px);
+                padding: 0 16px;
+                line-height: 1.4;
             }
 
             #intro .background-video {
                 width: calc(100vw * (1 - var(--intro-scale)) + (100vw - 32px) * var(--intro-scale));
+                height: calc(100vh * (1 - var(--intro-scale)) + 85vh * var(--intro-scale));
             }
 
             h1 {
-                font-size: 24px;
+                font-size: clamp(20px, 5vw, 24px);
+                line-height: 1.3;
+            }
+
+            h2 {
+                font-size: clamp(16px, 4vw, 22px);
+                line-height: 1.4;
+            }
+
+            p {
+                font-size: clamp(14px, 3.5vw, 16px);
+                line-height: 1.5;
             }
 
             section {
-                padding: 32px 16px;
+                padding: 24px 16px;
                 position: relative;
             }
 
+            .text {
+                margin-bottom: 32px;
+            }
+
             .grid {
-                gap: 4px;
+                gap: 8px;
             }
 
             .flex {
-                gap: 4px !important;
+                gap: 8px !important;
             }
 
             .flex-mobile {
@@ -1031,8 +1087,8 @@
             }
 
             #t2v .feature-video {
-                aspect-ratio: 1;
-                max-height: calc(100vh - 64px);
+                aspect-ratio: 16/9;
+                max-height: 60vh;
             }
 
             #long .text,
@@ -1042,7 +1098,7 @@
             }
 
             #shots {
-                padding: 32px 16px;
+                padding: 24px 16px;
             }
 
             #shots .main {
@@ -1053,7 +1109,7 @@
             #shots .shots-list {
                 display: flex;
                 overflow-x: scroll;
-                gap: 4px;
+                gap: 8px;
                 width: 100vw;
                 margin: 0 0 0 -16px;
                 padding: 0 16px;
@@ -1063,6 +1119,7 @@
             #shots .shots-list>div {
                 scroll-snap-align: start;
                 scroll-margin: 16px;
+                min-width: 200px;
             }
 
             .grid:not(.grid-noslide) {
@@ -1073,11 +1130,14 @@
                 padding: 0 16px;
                 scroll-snap-type: x mandatory;
                 scrollbar-width: none;
+                -webkit-overflow-scrolling: touch;
             }
 
             .grid:not(.grid-noslide)>* {
-                width: calc(100vw - 64px);
-                max-height: calc(100vh - 64px);
+                width: calc(100vw - 48px);
+                max-width: 400px;
+                min-width: 280px;
+                max-height: 60vh;
                 flex-shrink: 0;
                 scroll-snap-align: center;
                 scroll-snap-stop: always;
@@ -1096,6 +1156,11 @@
                 border-bottom-right-radius: 0;
             }
 
+            .video-player {
+                border-radius: 12px;
+                min-height: 180px;
+            }
+
             .audio-control .audio-button {
                 display: none;
             }
@@ -1106,6 +1171,9 @@
 
             .audio-control .speed-button {
                 opacity: 0;
+                width: 80px;
+                height: 80px;
+                border-radius: 40px;
             }
 
             .video-player:active .speed-button {
@@ -1113,25 +1181,30 @@
             }
 
             .audio-button-mobile {
-                right: 48px;
-                bottom: 48px;
+                right: 24px;
+                bottom: 24px;
+                width: 56px;
+                height: 56px;
+                border-radius: 28px;
             }
 
             section:has(a.external) .audio-button-mobile {
-                bottom: 96px;
+                bottom: 80px;
             }
 
             .duration-indicator .bar {
-                left: 16px;
-                bottom: 8px;
-                width: calc(100% - 32px);
+                left: 12px;
+                bottom: 12px;
+                width: calc(100% - 24px);
+                height: 4px;
                 opacity: 0;
                 transform: translateY(10px);
             }
 
             .duration-indicator .time {
-                right: 16px;
-                bottom: 16px;
+                right: 12px;
+                bottom: 20px;
+                font-size: 12px;
                 opacity: 0;
                 transform: translateY(10px);
             }
@@ -1146,8 +1219,93 @@
             }
 
             #synthetic .grid {
-                border-radius: 16px;
+                border-radius: 12px;
                 overflow: hidden;
+            }
+
+            #synthetic .video-player {
+                border-radius: 0;
+                min-height: 200px;
+            }
+
+            #synthetic .flex>div:last-child {
+                display: none;
+            }
+
+            section:has(a.external) {
+                padding-bottom: 72px !important;
+            }
+
+            a.external {
+                position: absolute;
+                bottom: 24px;
+                left: 16px;
+                width: calc(100vw - 32px);
+                text-align: center;
+                padding: 12px 16px;
+                font-size: 14px;
+            }
+
+            #shots a.external {
+                position: inherit;
+                margin: 8px 0;
+            }
+
+            #shots {
+                padding-bottom: 32px !important;
+            }
+
+            .desktop-only {
+                display: none !important;
+            }
+
+            #synthetic a.external {
+                background: rgba(255, 255, 255, 0.1);
+            }
+
+            .page-select {
+                justify-content: flex-start;
+                overflow-x: auto;
+                margin-left: -16px;
+                margin-right: -16px;
+                padding-left: 16px;
+                padding-right: 16px;
+                scrollbar-width: none;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .page-select > div {
+                white-space: nowrap;
+                flex-shrink: 0;
+                padding: 8px 12px;
+                font-size: 14px;
+            }
+
+            .method-headers {
+                display: none;
+            }
+
+            .method-comparison {
+                margin-bottom: 24px;
+            }
+
+            /* 改进logo在移动端的显示 */
+            #logo {
+                right: calc(50vw - min(47.5vw, 800px));
+                padding: 16px 8px 8px 8px;
+            }
+
+            #logo svg {
+                width: 32px;
+                height: 32px;
+            }
+
+            /* 改进intro部分的图片显示 */
+            #intro img {
+                max-width: 90vw !important;
+                height: auto;
+                margin-bottom: -40px !important;
+            }
             }
 
             #synthetic .video-player {
@@ -1199,6 +1357,94 @@
 
             .method-headers {
                 display: none;
+            }
+        }
+
+        /* 针对更小屏幕的额外优化 */
+        @media (max-width: 480px) {
+            #intro h1 {
+                font-size: clamp(28px, 7vw, 48px);
+                margin: 40px 0 16px 0;
+            }
+
+            #intro h2 {
+                font-size: clamp(12px, 3.5vw, 16px);
+                margin: 16px 0 32px 0;
+            }
+
+            section {
+                padding: 20px 12px;
+            }
+
+            .text {
+                margin-bottom: 24px;
+            }
+
+            .grid:not(.grid-noslide)>* {
+                width: calc(100vw - 32px);
+                min-width: 260px;
+                max-height: 50vh;
+            }
+
+            .video-player {
+                min-height: 150px;
+            }
+
+            .audio-button-mobile {
+                right: 16px;
+                bottom: 16px;
+                width: 48px;
+                height: 48px;
+                border-radius: 24px;
+            }
+
+            a.external {
+                bottom: 16px;
+                left: 12px;
+                width: calc(100vw - 24px);
+                padding: 10px 12px;
+                font-size: 13px;
+            }
+
+            .page-select > div {
+                padding: 6px 10px;
+                font-size: 13px;
+            }
+
+            #intro img {
+                max-width: 95vw !important;
+                margin-bottom: -30px !important;
+            }
+        }
+
+        /* 针对横屏手机的优化 */
+        @media (max-width: 900px) and (max-height: 500px) and (orientation: landscape) {
+            #intro {
+                height: auto;
+                min-height: 100vh;
+                padding: 40px 0;
+            }
+
+            #intro h1 {
+                font-size: clamp(24px, 4vw, 36px);
+                margin: 20px 0 16px 0;
+            }
+
+            #intro h2 {
+                font-size: clamp(12px, 2.5vw, 16px);
+                margin: 16px 0 24px 0;
+            }
+
+            #intro .background-video {
+                height: 80vh;
+            }
+
+            section {
+                padding: 24px 16px;
+            }
+
+            .grid:not(.grid-noslide)>* {
+                max-height: 40vh;
             }
         }
     </style>
