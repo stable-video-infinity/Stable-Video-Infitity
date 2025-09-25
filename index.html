@@ -1366,7 +1366,20 @@
             }
 
             .method-headers {
-                display: none;
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 8px;
+                margin-bottom: 16px;
+            }
+
+            .method-header {
+                padding: 8px 12px;
+                font-size: 12px;
+            }
+
+            .method-header h3 {
+                font-size: 14px;
+                margin: 0;
             }
 
             .method-comparison {
