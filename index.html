@@ -880,6 +880,67 @@
             background-image: url(assets/icons/fullscreen-exit.svg);
         }
 
+        .video-caption {
+            padding: 8px 16px;
+            font-size: 14px;
+            line-height: 1.4;
+            color: #888;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.05);
+            border-radius: 0 0 8px 8px;
+            margin-top: -8px;
+        }
+
+        .row-caption {
+            display: flex;
+            justify-content: center;
+            margin: 8px 0 24px 0;
+        }
+
+        .row-caption .video-caption {
+            max-width: 1200px;
+            margin: 0;
+            position: relative;
+        }
+
+        .caption-toggle {
+            display: inline-block;
+            background: rgba(0, 0, 0, 0.1);
+            border: 1px solid #666;
+            color: #666;
+            padding: 4px 12px;
+            border-radius: 16px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 8px;
+        }
+
+        .caption-toggle:hover {
+            background: rgba(0, 0, 0, 0.2);
+            color: #888;
+        }
+
+        .caption-content {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .caption-content.expanded {
+            display: block;
+            opacity: 1;
+        }
+
+        .caption-toggle::after {
+            content: " ▼";
+            transition: transform 0.3s ease;
+        }
+
+        .caption-toggle.expanded::after {
+            transform: rotate(180deg);
+        }
+
         #camera-control .grid {
             grid-template-columns: repeat(4, 1fr);
         }
@@ -1394,6 +1455,16 @@
                 margin-bottom: 24px;
             }
 
+            .row-caption {
+                margin: 12px 16px 20px 16px;
+            }
+
+            .row-caption .video-caption {
+                font-size: 12px;
+                padding: 6px 12px;
+                max-width: none;
+            }
+
             /* 改进logo在移动端的显示 */
             #logo {
                 right: calc(50vw - min(47.5vw, 800px));
@@ -1645,7 +1716,12 @@
                     <video muted loop playsinline preload="none" src="videos/consistent/svi/Boat.mp4"></video>
                 </div>
 
-
+            </div>
+            <div class="row-caption">
+                <div class="video-caption">A sleek white motor yacht speeds across the turquoise blue sea, leaving a dramatic wake of white foam behind it under a clear blue sky.</div>
+            </div>
+            
+            <div class="grid">
                 <div class="video-player audio-control duration-indicator">
                     <video muted loop playsinline preload="none"
                         src="videos/consistent/streamingt2v/Epephant.mp4"></video>
@@ -1656,8 +1732,13 @@
                 <div class="video-player audio-control duration-indicator">
                     <video muted loop playsinline preload="none" src="videos/consistent/svi/Elephant.mp4"></video>
                 </div>
-        
 
+            </div>
+            <div class="row-caption">
+                <div class="video-caption">A mother elephant and her calf stand together in a grassy field under a clear blue sky, with the mother elephant appearing protective and the calf nestled close to her side.</div>
+            </div>
+
+            <div class="grid">
                 <div class="video-player audio-control duration-indicator">
                     <video muted loop playsinline preload="none"
                         src="videos/consistent/streamingt2v/Snow.mp4"></video>
@@ -1668,7 +1749,13 @@
                 <div class="video-player audio-control duration-indicator">
                     <video muted loop playsinline preload="none" src="videos/consistent/svi/Snow.mp4"></video>
                 </div>
-        
+
+            </div>
+            <div class="row-caption">
+                <div class="video-caption">A person clad in dark winter attire walks through a heavy snowstorm, their figure partially obscured by swirling snowflakes, creating a stark contrast against the snowy street beneath them.</div>
+            </div>
+
+            <div class="grid">
                 <div class="video-player audio-control duration-indicator">
                     <video muted loop playsinline preload="none"
                         src="videos/consistent/streamingt2v/Train.mp4"></video>
@@ -1679,7 +1766,13 @@
                 <div class="video-player audio-control duration-indicator">
                     <video muted loop playsinline preload="none" src="videos/consistent/svi/Train.mp4"></video>
                 </div>
-                       
+
+            </div>
+            <div class="row-caption">
+                <div class="video-caption">A modern Alstom Adessia train, painted in a sleek white design with green and red accents, speeds along tracks surrounded by lush greenery under a clear blue sky, with distant buildings visible in the background.</div>
+            </div>
+
+            <div class="grid">
                 <div class="video-player audio-control duration-indicator">
                     <video muted loop playsinline preload="none"
                         src="videos/consistent/streamingt2v/Zoo.mp4"></video>
@@ -1690,8 +1783,10 @@
                 <div class="video-player audio-control duration-indicator">
                     <video muted loop playsinline preload="none" src="videos/consistent/svi/Zoo.mp4"></video>
                 </div>
-                 
 
+            </div>
+            <div class="row-caption">
+                <div class="video-caption">A family, including a mother and her children, are feeding a giraffe at a zoo, with the children extending branches of leaves towards the giraffe through a fence.</div>
             </div>
         </div>
         <div class="audio-button audio-button-mobile"></div>
@@ -1735,6 +1830,21 @@
                     <video muted loop playsinline preload="none" src="videos/creative/svi/Music.mp4"></video>
                 </div>
 
+            </div>
+            <div class="row-caption">
+                <div class="video-caption">A band is performing energetically on stage under purple and green lights.<br>
+                The lead guitarist bends forward, his passion for the music evident in every movement.<br>
+                Behind him, another musician strums his guitar with intensity, lost in the rhythm.<br>
+                The drummer, partially obscured by the drums, maintains a steady beat.<br>
+                The bassist stands at the back, his fingers dancing over the strings of his instrument.<br>
+                The audience is captivated, their faces illuminated by the stage lights.<br>
+                As the performance progresses, the lead singer joins the band, adding vocals to the mix.<br>
+                The lighting changes, shifting from green to blue as the song transitions.<br>
+                A smoke machine introduces wisps of fog that swirl around the performers, enhancing the atmosphere.<br>
+                The lead guitarist's long hair flows with the movement of his body, a beautiful sight against the backdrop of the stage.</div>
+            </div>
+            
+            <div class="grid">
                 <div class="video-player audio-control duration-indicator">
                     <video muted loop playsinline preload="none" src="videos/creative/streamingt2v/Family.mp4"></video>
                 </div>
@@ -1745,8 +1855,21 @@
                     <video muted loop playsinline preload="none" src="videos/creative/svi/Family.mp4"></video>
                 </div>
 
+            </div>
+            <div class="row-caption">
+                <div class="video-caption">The image depicts a woman and a young girl in a kitchen setting, engaged in some form of cleaning or craft activity.<br>
+                The woman is wearing a light-colored, short-sleeved top with a subtle pattern and has a tattoo visible on her left arm. She is also wearing pink rubber gloves.<br>
+                The young girl, standing beside her, is dressed in a sleeveless white shirt adorned with colorful dots and stripes, complemented by a large pink bow on her head.<br>
+                Both appear focused and content as they work together at a counter.<br>
+                As the woman guides the girl through the activity, she picks up a spray bottle filled with a liquid, possibly a cleaning solution.<br>
+                The girl reaches out to touch the counter, exploring its texture or looking for something specific.<br>
+                The woman explains the next step of their task, pointing towards a set of cleaning brushes and a bucket nearby.<br>
+                The girl reaches for one of the brushes, seemingly ready to assist her mother.<br>
+                The woman demonstrates how to use the spray bottle effectively, showing the girl to aim it carefully at a surface.<br>
+                The girl watches intently as her mother sprays the solution onto a surface, likely a countertop or a table.</div>
+            </div>
 
-
+            <div class="grid">
                 <div class="video-player audio-control duration-indicator">
                     <video muted loop playsinline preload="none" src="videos/creative/streamingt2v/Cat.mp4"></video>
                 </div>
@@ -1757,7 +1880,21 @@
                     <video muted loop playsinline preload="none" src="videos/creative/svi/Cat.mp4"></video>
                 </div>
 
+            </div>
+            <div class="row-caption">
+                <div class="video-caption">A Siamese kitten rests snugly inside a straw hat, its head slightly tilted as it gazes curiously to the side.<br>
+                The kitten decides to explore the room and jumps out of the hat onto the soft carpet below.<br>
+                The kitten sees a feather toy and immediately pounces on it, chasing it around the living room.<br>
+                The feather toy becomes stuck in a corner, causing the kitten to climb up a nearby piece of furniture to reach it.<br>
+                As the kitten plays with the feather toy, it accidentally scratches the armrest of the sofa.<br>
+                The owner notices the scratch mark and gently removes the kitten from the furniture, placing it back into the hat for safety.<br>
+                The kitten, still playful, decides to investigate a box that has been moved to the floor.<br>
+                Inside the box, the kitten discovers a small toy mouse, which it pounces on with great enthusiasm.<br>
+                The kitten's excitement grows as it chases the toy mouse around the house, causing some minor chaos.<br>
+                After a while, the kitten tires itself out and falls asleep on the living room floor, still clutching the toy mouse.</div>
+            </div>
 
+            <div class="grid">
                 <div class="video-player audio-control duration-indicator">
                     <video muted loop playsinline preload="none" src="videos/creative/streamingt2v/Music2.mp4"></video>
                 </div>
@@ -1768,9 +1905,21 @@
                     <video muted loop playsinline preload="none" src="videos/creative/svi/Music2.mp4"></video>
                 </div>
 
+            </div>
+            <div class="row-caption">
+                <div class="video-caption">The drummer is seated behind a drum set with a cymbal in the foreground, ready to play.<br>
+                The drummer's hand moves swiftly, striking the snare drum with precision.<br>
+                A slight shimmer of light reflects off the metallic surfaces of the drums and cymbals.<br>
+                The sound of the drumsticks hitting the drumheads resonates through the air.<br>
+                The drummer's foot taps rhythmically on the bass drum pedal.<br>
+                A small audience gathers around, their attention captivated by the performance.<br>
+                The drummer switches to playing the bass drum, creating a powerful beat.<br>
+                The cymbal in the foreground glints in the stage lights as it is struck.<br>
+                The drummer adjusts the tension on one of the drum heads for better sound quality.<br>
+                A soft, melodic tone emerges from the snare drum, adding depth to the music.</div>
+            </div>
 
-
-
+            <div class="grid">
                 <div class="video-player audio-control duration-indicator">
                     <video muted loop playsinline preload="none" src="videos/creative/streamingt2v/Cook.mp4"></video>
                 </div>
@@ -1781,7 +1930,18 @@
                     <video muted loop playsinline preload="none" src="videos/creative/svi/Cook.mp4"></video>
                 </div>
 
-
+            </div>
+            <div class="row-caption">
+                <div class="video-caption">A beautifully plated dish of meat and vegetables sits elegantly on a dark gray plate against a deep blue tablecloth.<br>
+                The chef carefully arranges microgreens on top of the meat, ensuring they are evenly distributed.<br>
+                A diner approaches the table, admiring the vibrant colors and textures of the dish before taking their seat.<br>
+                The diner begins to cut into the meat with a sharp knife, revealing a perfectly cooked interior.<br>
+                The sizzling sound of the meat cooking in a pan can be heard faintly from the kitchen.<br>
+                The diners are served with a side of creamy mashed potatoes, adding a comforting element to the meal.<br>
+                A glass of red wine is poured, complementing the rich flavors of the meat and vegetables.<br>
+                The meal is accompanied by a delicate salad, offering a refreshing contrast to the main course.<br>
+                The chef presents the dish to the table, garnishing it with a sprinkle of freshly ground black pepper for added flavor.<br>
+                The diner takes a bite of the meat, savoring the tender texture and savory taste.</div>
             </div>
         </div>
         <div class="audio-button audio-button-mobile"></div>
@@ -1821,8 +1981,6 @@
             </div>
 
             <div class="grid">
-
-
                 <div class="video-player audio-control duration-indicator">
                     <video muted loop playsinline preload="none" src="videos/ultra-long/wan/city.mp4"></video>
                 </div>
@@ -1832,6 +1990,15 @@
                 <div class="video-player audio-control duration-indicator">
                     <video muted loop playsinline preload="none" src="videos/ultra-long/svi/city.mp4"></video>
                 </div>
+            </div>
+            <div class="row-caption">
+                <div class="video-caption">
+                    <div class="caption-toggle" onclick="toggleCaption(this)">Show Prompts</div>
+                    <div class="caption-content">In the pre-dawn quiet, the massive highway interchange lies dormant, a concrete titan asleep. A network of empty asphalt ribbons weaves between darkened buildings and sleeping forests. The first vehicle appears, its headlights a lonely streak of white light in the gloom. The sun begins to rise, casting a soft orange glow on the highest ramps and overpasses. The city's streetlights flicker off one by one as the sky brightens. A trickle of early commuters begins, their cars spaced far apart. The interchange is the city's circulatory system, and its heart is beginning to beat. The first rays of sunlight reveal the autumn colors of the trees nestled between the ramps. The quiet hum of the first wave of traffic is the sound of the city waking up. The great daily migration is about to begin. Within minutes, the trickle of cars becomes a steady stream. Thousands of individual journeys converge on this single, complex point. The interchange channels the flow, sorting cars onto different paths with engineered precision. The morning rush hour builds, a river of steel and glass flooding the concrete banks. From above, the patterns of movement are hypnotic and complex. White headlights pour into the city center; red taillights are few. The interchange operates at peak efficiency, a testament to decades of planning. Each car is a single data point in a massive, real-time logistical puzzle. The collective sound grows from a hum to a constant, powerful roar. The city is now fully awake, inhaling its workforce from the surrounding suburbs. Buses navigate their dedicated lanes, carrying hundreds of passengers at a time. Delivery trucks rumble along, carrying the goods that keep the city running. The sun climbs higher, glinting off a million windshields and painted roofs. The interchange seems to breathe, managing the relentless pulse of traffic. Every ramp and every lane is now filled, moving in a controlled, chaotic dance. It is a marvel of modern infrastructure, a solution to the problem of movement. The surrounding trees, in their autumn finery, provide a natural contrast to the grey concrete. The system is designed for flow, for perpetual, uninterrupted motion. For a few hours, this massive structure is one of the busiest places on the planet. The morning rush finally begins to ease as commuters reach their destinations. The traffic thins slightly, moving faster now, the pressure lessened. Midday traffic is different: shoppers, tourists, and commercial vehicles take over. The pace is less frantic but still constant. The sun is directly overhead, eliminating all shadows in the interchange's canyons. The system continues its work, flawlessly directing the city's lifeblood. Then, on a crucial, high-level ramp, a plume of white smoke erupts from a car's engine. The car sputters to a halt, instantly blocking a critical artery. The driver behind brakes sharply, and the car behind them fails to stop in time. A minor collision occurs, but the blockage is now complete. The ripple effect is instantaneous and unforgiving. The flow of traffic behind the incident stops completely. A solid line of red taillights begins to snake backward down the ramp. Within minutes, the congestion spills onto the main highway below. The interchange's perfect rhythm is broken. The system, designed for motion, is now causing a massive standstill. Horns begin to honk, a symphony of frustration rising from the jam. From the air, the traffic jam looks like a clot, spreading through the arteries. Thousands of people are now trapped, their journeys indefinitely delayed. The city's inhalation has been choked off. Emergency services are dispatched, their sirens wailing in the distance. A police car and a tow truck fight their way through the congested lanes.</div>
+                </div>
+            </div>
+
+            <div class="grid">
                 <div class="video-player audio-control duration-indicator">
                     <video muted loop playsinline preload="none" src="videos/ultra-long/wan/water.mp4"></video>
                 </div>
@@ -1841,6 +2008,15 @@
                 <div class="video-player audio-control duration-indicator">
                     <video muted loop playsinline preload="none" src="videos/ultra-long/svi/water.mp4"></video>
                 </div>
+            </div>
+            <div class="row-caption">
+                <div class="video-caption">
+                    <div class="caption-toggle" onclick="toggleCaption(this)">Show Prompts</div>
+                    <div class="caption-content">The river continues to flow rapidly forward, churning over submerged rocks. A large wave of white water surges upwards and then crashes downwards. A piece of driftwood is carried forward by the current. The clouds in the sky drift slowly forward from right to left. A single pine needle falls downwards from a tree into the water. A fish jumps upwards from the river, then splashes back down. The camera slowly zooms in, moving forward to focus on the rapids. The camera pans to the left, revealing more of the rocky shoreline. A small squirrel runs quickly upwards along the trunk of a pine tree. The squirrel runs back downwards and disappears into the undergrowth. The water level of the river begins to rise slowly upwards. The river's current becomes stronger, moving forward with more force. A kayaker in a yellow kayak appears upstream, paddling forward. The kayaker skillfully navigates the rapids, moving left and right. The kayaker's paddle dips downwards into the water on the left side. The kayaker's paddle dips downwards into the water on the right side. The kayaker successfully passes the rapids and moves forward downstream. An eagle soars in circles high above the river. The eagle folds its wings and dives straight downwards towards the water. The eagle pulls up just above the water, a fish in its talons, and flies upwards. The eagle flies away, moving backward up the river. A large brown bear emerges from the forest on the right, moving forward. The bear walks down to the river's edge. The bear dips its head downwards to drink from the river. The bear then wades into the water, moving forward. The bear attempts to catch a fish with its paw, swiping downwards. The bear walks back out of the river and moves backward into the forest. Dark clouds begin to roll in, moving forward from the background. The sunlight fades as the clouds cover the sun. Rain begins to fall downwards, creating small splashes on the river's surface. Lightning flashes in the distance, illuminating the sky. The rain becomes heavier, falling straight down. The river's water level rises upwards more quickly. A small stream of rainwater flows downwards over the rocks on the right. The storm passes, and the clouds move away to the left. The sun reappears, and its light moves forward across the landscape. A rainbow forms, arching upwards over the river. The sun begins to set, moving downwards towards the horizon. The sky turns orange and pink, reflecting on the water's surface. The sun disappears, and the scene darkens into twilight. The moon rises upwards, casting a silvery light downwards. A bat flies erratically back and forth above the river. An owl, perched on a high branch, flies downwards from its perch. The camera viewpoint shifts, descending downwards to water level. The camera moves forward, skimming just above the surface of the rapids. The camera ascends straight upwards for a top-down view of the river. The season changes to autumn; the deciduous trees turn yellow. Yellow leaves fall downwards and are carried forward by the river. The season changes to winter; snow begins to fall downwards. The snow covers the rocks and trees in a layer of white. Ice begins to form inwards from the edges of the river.</div>
+                </div>
+            </div>
+
+            <div class="grid">
                 <div class="video-player audio-control duration-indicator">
                     <video muted loop playsinline preload="none" src="videos/ultra-long/wan/bicycle.mp4"></video>
                 </div>
@@ -1851,19 +2027,36 @@
                     <video muted loop playsinline preload="none" src="videos/ultra-long/svi/bicycle.mp4"></video>
                 </div>
             </div>
+            <div class="row-caption">
+                <div class="video-caption">
+                    <div class="caption-toggle" onclick="toggleCaption(this)">Show Prompts</div>
+                    <div class="caption-content">                
+                    A man and a young girl ride their bikes along a sun-dappled path.
+                    The cobblestones make a gentle rumbling sound beneath their tires.
+                    Lush green trees line the path, their leaves rustling in the breeze.
+                    The man smiles, watching the girl pedal confidently beside him.
+                    She glances at him, her face full of joy for their shared adventure.
+                    They ride in a comfortable silence, enjoying the perfect spring afternoon.
+                    Sunlight filters through the leaves, creating shifting patterns on the ground.
+                    They decide to bike towards the old, historic part of the city.
+                    The man points towards a distant spire, suggesting it as their destination.
+                    The girl agrees enthusiastically, pedaling a little faster.
+                    They leave the park path and merge onto a quiet city street.
+                    Old brick buildings with colorful flower boxes line their route.
+                    They pass a bustling outdoor cafe, the air filled with the scent of coffee and pastries.
+                    They ring their bells cheerfully at a stray cat sunning itself on a wall.
+                    The man points out interesting architectural details on the buildings they pass.
+                    The girl listens, her imagination sparked by stories of the city's past.
+                    They decide to take a shortcut down a narrow, unfamiliar alleyway.
+                    The alley opens up into a small, forgotten courtyard they've never seen before.
+                    In the center of the courtyard stands a tall, old clock tower, silent and imposing.</div>
+                </div>
+            </div>
+
+            </div>
         </div>
         <div class="audio-button audio-button-mobile"></div>
     </section>
-
-
-
-
-
-
-
-
-
-
 
 
     <section id="avatar">
@@ -2769,6 +2962,134 @@
             player.addEventListener("touchend", endSpeedUp);
             player.addEventListener("touchcancel", endSpeedUp);
         });
+
+        // Simple toggle function
+        function toggleCaption(button) {
+            console.log('toggleCaption called');
+            const content = button.parentElement.querySelector('.caption-content');
+            if (content) {
+                if (content.classList.contains('expanded')) {
+                    content.classList.remove('expanded');
+                    button.textContent = 'Show Prompts';
+                    button.classList.remove('expanded');
+                    console.log('Hiding content');
+                } else {
+                    content.classList.add('expanded');
+                    button.textContent = 'Hide Prompts';
+                    button.classList.add('expanded');
+                    console.log('Showing content');
+                }
+            } else {
+                console.log('No content found');
+            }
+        }
+
+        // Caption toggle functionality - only for Ultra-Long section
+        function initializeCaptionToggles() {
+            console.log('Initializing caption toggles...');
+            
+            // Wait a bit to ensure DOM is fully loaded
+            setTimeout(function() {
+                // Find the section that contains "Ultra-Long Creative Generation"
+                const allSections = document.querySelectorAll('section');
+                let ultraLongSection = null;
+                
+                allSections.forEach(section => {
+                    const h1 = section.querySelector('h1');
+                    if (h1 && h1.textContent.includes('Ultra-Long Creative Generation')) {
+                        ultraLongSection = section;
+                    }
+                });
+                
+                console.log('Ultra-Long section found:', ultraLongSection);
+                
+                if (!ultraLongSection) {
+                    console.log('Ultra-Long section not found!');
+                    return;
+                }
+                
+                const toggleButtons = ultraLongSection.querySelectorAll('.caption-toggle');
+                console.log('Toggle buttons found:', toggleButtons.length);
+                
+                toggleButtons.forEach((toggleButton, index) => {
+                    console.log('Processing toggle button:', index, toggleButton);
+                    const videoCaption = toggleButton.parentElement;
+                    const contentWrapper = videoCaption.querySelector('.caption-content');
+                    
+                    console.log('Content wrapper found:', contentWrapper);
+                    
+                    if (!contentWrapper) {
+                        console.log('No content wrapper found for button', index);
+                        return;
+                    }
+                    
+                    // Remove any existing event listeners
+                    const newToggleButton = toggleButton.cloneNode(true);
+                    toggleButton.parentNode.replaceChild(newToggleButton, toggleButton);
+                    
+                    // Add click event
+                    newToggleButton.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        console.log('Toggle button clicked for index:', index);
+                        const isExpanded = contentWrapper.classList.contains('expanded');
+                        console.log('Current state - expanded:', isExpanded);
+                        
+                        if (isExpanded) {
+                            contentWrapper.classList.remove('expanded');
+                            newToggleButton.classList.remove('expanded');
+                            newToggleButton.textContent = 'Show Prompts';
+                            console.log('Collapsed content');
+                        } else {
+                            contentWrapper.classList.add('expanded');
+                            newToggleButton.classList.add('expanded');
+                            newToggleButton.textContent = 'Hide Prompts';
+                            console.log('Expanded content');
+                        }
+                    });
+                    
+                    console.log('Event listener added to button', index);
+                });
+            }, 500);
+        }
+
+        // Initialize caption toggles when DOM is loaded
+        document.addEventListener('DOMContentLoaded', initializeCaptionToggles);
+        
+        // Also try after page load
+        window.addEventListener('load', initializeCaptionToggles);
+        
+        // And try immediately if DOM is already ready
+        if (document.readyState === 'complete') {
+            initializeCaptionToggles();
+        }
+        
+        // Backup method - directly find and bind all caption toggles
+        function backupInitialize() {
+            console.log('Backup initialization...');
+            const allToggles = document.querySelectorAll('.caption-toggle');
+            console.log('Found caption toggles:', allToggles.length);
+            
+            allToggles.forEach((toggle, index) => {
+                toggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    console.log('Backup: Toggle clicked', index);
+                    const content = toggle.parentElement.querySelector('.caption-content');
+                    if (content) {
+                        if (content.style.display === 'block') {
+                            content.style.display = 'none';
+                            toggle.textContent = 'Show Prompts';
+                        } else {
+                            content.style.display = 'block';
+                            toggle.textContent = 'Hide Prompts';
+                        }
+                    }
+                });
+            });
+        }
+        
+        // Run backup after a delay
+        setTimeout(backupInitialize, 2000);
     </script>
     <script defer
         src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015"
